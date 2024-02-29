@@ -89,7 +89,7 @@ for i = 1:length(k_values)
     hold off;
 
     % Customize the plot
-    title(['Pareto Plot of Cumulative Variance Explained (Threshold = ', num2str(threshold), ')']);
+    title(['Pareto Plot of Cumulative Variance Explained (Threshold = ', num2str(thresholds(i)), ')']);
     xlabel('Principal Component');
     ylabel('Cumulative Percentage of Variance Explained');
     grid on;
@@ -139,8 +139,8 @@ title('PCA Whitening');
 %  Visualise the data and compare it to the raw data. You should observe
 %  that whitening results in, among other things, enhanced edges.
 
-% Perform ZCA whitening using the first k components
-xZCAWhite = U_k * diag(1./sqrt(diag(S_k) + epsilon)) * U_k' * x;
+% Perform ZCA whitening
+xZCAWhite = U * diag(1./sqrt(diag(S) + epsilon)) * U' * x;
 
 % Visualize the data, and compare it to the raw data.
 % You should observe that the whitened images have enhanced edges.
